@@ -4,6 +4,7 @@ from crewai import Agent, Task, Crew
 from crewai_tools import SerperDevTool
 from langchain_openai import ChatOpenAI
 from langchain_community.llms import Ollama
+from crewai import LLM
 
 load_dotenv()
 
@@ -15,7 +16,12 @@ def create_research_agent(use_gpt=True):
     if use_gpt:
         llm = ChatOpenAI(model="o3-mini")
     else:
-        llm = Ollama(model="llama3.1") 
+        llm = LLM(
+            model="ollama/deepseek-r1:8b",  # You can use different models like "mistral", "codellama", etc.
+            # temperature=0.7,
+            # top_p=0.9,
+            base_url="http://localhost:11434"  # Default Ollama server URL
+        )
 
     return Agent(
         role='Research Specialist',
@@ -31,7 +37,7 @@ def create_research_task(agent, topic):
     return Task(
         description=f"Research the following topic and provide a comprehensive summary: {topic}",
         agent=agent,
-        expected_output="A detailed summary of the research findings, including key points, trends, and insights related to the topic."
+        expected_output="A detailed summary of the research findings, including key points, trends, and insights related to the topic.. Create a new file in markdown format"
     )
 
 def run_research(topic, use_gpt=True):
