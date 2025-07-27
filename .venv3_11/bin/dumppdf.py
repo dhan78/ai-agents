@@ -1,4 +1,4 @@
-#!/var/home/admin/IdeaProjects/ai-agents/.venv3_11/bin/python3.11
+#!/var/home/admin/IdeaProjects/ai-agents/.venv3_11/bin/python
 """Extract pdf structure in XML format"""
 
 import logging

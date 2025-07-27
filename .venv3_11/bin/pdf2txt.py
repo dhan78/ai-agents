@@ -1,4 +1,4 @@
-#!/var/home/admin/IdeaProjects/ai-agents/.venv3_11/bin/python3.11
+#!/var/home/admin/IdeaProjects/ai-agents/.venv3_11/bin/python
 """A command line tool for extracting text and images from PDF and
 output it to plain text, html, xml or tags.
 """
