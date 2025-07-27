@@ -4,3 +4,4 @@
 agents/call-agent
 agents/simple-call-agent
 agents/agents
+*.pyc
